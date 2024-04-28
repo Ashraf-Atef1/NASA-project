@@ -7,7 +7,7 @@ const habitablePlanets = require('./route/planets/planets.router');
 const launchesRouter = require('./route/launches/launches.router')
 app.use(morgan('combined'));
 app.use(cors({
-	origin: "http://localhost:3000"
+	origin: "*"
 }))
 app.use(express.json());
 app.use('/planets', habitablePlanets);

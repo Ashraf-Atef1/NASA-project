@@ -24,9 +24,12 @@ function addLaunch(launch) {
             upcoming: true,
             success: true,
         })
+        console.log(launch);
         launches.set(newLaunch.flightNumber, newLaunch);
+        console.log("New launch added: ", newLaunch)
         return newLaunch;
     } else {
+        console.log("Error: Invalid launch data");
         return null;
     }
 }
