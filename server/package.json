@@ -6,6 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "node ./src/server.js",
+    "cluster": "pm2 start ./src/server.js -i max",
+    "stop_cluster": "pm2 stop ./src/server.js",
     "nodemon": "nodemon ./src/server.js"
   },
   "keywords": [],
@@ -16,9 +18,11 @@
     "csv-parse": "^5.5.5",
     "csv-parser": "^3.0.0",
     "express": "^4.19.2",
+    "mongoos": "^0.0.1-security",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pm2": "^5.3.1"
   },
   "devDependencies": {
     "jest": "^29.7.0",
