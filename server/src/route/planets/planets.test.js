@@ -1,13 +1,22 @@
 const request = require('supertest');
 const app = require('../../app');
+const mongoose = require("mongoose")
+const mongooseConnect = require('../../services/mongo');
 
-describe('Planets tests', ()=>{
-    test('Should return a json response with 200 status code', async () => { 
-        await request(app).get('/planets').expect('Content-Type', /json/).expect(200);
+describe('Planets tests', () => {
+    beforeAll(async () => {
+        await mongooseConnect();
+    });
+    afterAll(async ()=> {
+        await mongoose.disconnect();
+    })
+
+    test('Should return a json response with 200 status code', async () => {
+        await request(app).get('/v1/planets').expect('Content-Type', /json/).expect(200);
     });
 
     test('Should return a list of planets', async () => { 
-        const response = await request(app).get('/planets');
+        const response = await request(app).get('/v1/planets');
         const planets = response.body;
         expect(planets.length).toBeGreaterThan(0);
     });
