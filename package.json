@@ -9,7 +9,7 @@
     "install": "npm run install-server && npm run install-client",
     "deploy": "npm run build --prefix client && npm start --prefix server",
     "deploy_cluster": "npm run build --prefix client && npm run cluster --prefix server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm test --prefix server && npm test --prefix client"
   },
   "author": "",
   "license": "ISC",
