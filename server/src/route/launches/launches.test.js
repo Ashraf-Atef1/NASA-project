@@ -3,6 +3,7 @@ const app = require('../../app');
 const mongoose = require('mongoose');
 const mongooseConnect = require('../../services/mongo');
 const launchesDB = require("../../models/launches.mongo")
+jest.setTimeout(20000);
 describe('Launches Controller', () => {
     beforeAll(async () => {
         await mongooseConnect();
@@ -21,7 +22,7 @@ describe('Launches Controller', () => {
         const newLaunch = {
             mission: 'Test Mission from Jest.js',
             rocket: 'Falcon 9',
-            target: 'Kepler-186 f',
+            target: 'Kepler-296 A f',
             launchDate: 'January 1, 2025',
         };
         const response = await request(app).post('/v1/launches').send(newLaunch);

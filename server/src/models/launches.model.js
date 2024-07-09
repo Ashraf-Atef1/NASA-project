@@ -84,6 +84,7 @@ async function addLaunch(launch) {
     const planet = await planets.findOne({
         kepler_name: launch.target
     });
+
     if (launch.mission && launch.rocket && isNaN(launch.launchDate) && launch.target == planet.kepler_name ) {
         const newLaunch = Object.assign(launch, {
             flightNumber: await getLastFlightNumber() + 1,

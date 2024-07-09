@@ -1,3 +1,5 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const http = require("http");
 const PORT = process.env.PORT || 8000;
 const app = require("./app");
