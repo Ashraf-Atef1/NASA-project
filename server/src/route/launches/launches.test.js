@@ -3,10 +3,11 @@ const app = require('../../app');
 const mongoose = require('mongoose');
 const mongooseConnect = require('../../services/mongo');
 const launchesDB = require("../../models/launches.mongo")
-jest.setTimeout(20000);
+const loadPlanets = require("../../models/planets.model")
 describe('Launches Controller', () => {
     beforeAll(async () => {
         await mongooseConnect();
+        await loadPlanets();
     });
     afterAll(async ()=> {
         await mongoose.disconnect();
